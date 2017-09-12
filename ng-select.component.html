@@ -1,0 +1,25 @@
+<tag-input
+    [(ngModel)]='item'
+           [displayBy]="'name'"
+           [identifyBy]="'id'"
+           [placeholder] = "placeholder"
+           [secondaryPlaceholder] = "placeholder"
+           [onlyFromAutocomplete] = "down"
+           (onBlur)="onInputBlurred($event)"
+           (onFocus)="onInputFocused($event)"
+           (onSelect)="onSelected($event)"
+           (onRemove)="onItemRemoved($event)"
+           (onTextChange)="onTextChange($event)"
+           (onAdd)="onItemAdded($event)">
+            <tag-input-dropdown [displayBy]="'name'"
+                                [identifyBy]="'id'"
+                                [showDropdownIfEmpty] = "down"
+                                [focusFirstElement]="true"
+                                [autocompleteItems] = "itemsdown">
+                <ng-template let-item="itemsdown" let-index="index">
+                    ({{ index }})
+                </ng-template>
+            </tag-input-dropdown>
+</tag-input>
+
+
